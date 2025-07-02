@@ -1,0 +1,52 @@
+<!-- This is the sidebar component html file. This file is responsible for the sidebar component. -->
+<!-- <section #sidePanel [ngClass]="isOpen ? 'side-panel--open': ''"> -->
+<!-- <div class="side-panel" #sidePanel [ngClass]="isOpen ? 'side-panel--open': ''">
+    <div class="side-panel-wrapper">
+        <section class="side-panel__content" *ngIf="isOpen">
+            <div class="side-panel__header">
+                <div class="title-block">
+                    <div class="side-panel__title">
+                        <h3>{{title}}</h3>
+                        <small>{{subTitle}}</small>
+                    </div>
+                    <div class="side-panel__close" (click)="closeDrawer()"><i class="ri-close-large-line"></i></div>
+                </div>
+                <ng-content select="[header]"></ng-content>
+            </div>
+            <div class="side-panel__body">
+                <ng-content select="[content]"></ng-content>
+            </div>
+            <div class="side-panel__footer">
+                <ng-content select="[footer]"></ng-content>
+            </div>
+        </section>
+    </div>
+</div> -->
+<!-- </section> -->
+
+<div class="side-panel-overlay" [ngClass]="isOpen ? 'active' : ''" (click)="closeDrawer()"></div>
+
+<div class="side-panel" #sidePanel [ngClass]="isOpen ? 'side-panel--open': ''">
+    <div class="side-panel-wrapper">
+        <section class="side-panel__content" *ngIf="isOpen">
+            <div class="side-panel__header">
+                <div class="title-block">
+                    <div class="side-panel__title">
+                        <h3>{{ title }}</h3>
+                        <small>{{ subTitle }}</small>
+                    </div>
+                    <div class="side-panel__close" (click)="closeDrawer()">
+                        <i class="ri-close-large-line"></i>
+                    </div>
+                </div>
+                <ng-content select="[header]"></ng-content>
+            </div>
+            <div class="side-panel__body">
+                <ng-content select="[content]"></ng-content>
+            </div>
+            <div class="side-panel__footer">
+                <ng-content select="[footer]"></ng-content>
+            </div>
+        </section>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+@if (images) {
+<div class="carousel-wrapper">
+    <ngb-carousel>
+        @for (item of images; track $index) {
+        <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+                <img [src]="item.image" alt="{{item.title || 'slider'}}" />
+            </div>
+        </ng-template>
+        }
+    </ngb-carousel>
+</div>
+}

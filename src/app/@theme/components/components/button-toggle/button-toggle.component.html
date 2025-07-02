@@ -1,0 +1,5 @@
+<mat-button-toggle-group class="btn-group" [(ngModel)]="selected" (change)="onChange($event)" aria-label="Font Style">
+    @for (button of buttonList; track $index) {
+    <mat-button-toggle [value]="button"><span [innerHTML]="button.text"></span></mat-button-toggle>
+    }
+</mat-button-toggle-group>

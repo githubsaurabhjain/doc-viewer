@@ -1,0 +1,41 @@
+<section style="min-width: 350px;" class="overflow-auto">
+    <table mat-table [dataSource]="data">
+        @for (column of columnConfig; track $index) {
+        <ng-container [matColumnDef]="column.columnDef" [sticky]="column.isSticky">
+            <th class="text-center" mat-header-cell *matHeaderCellDef> {{column.label}} </th>
+            @if (!column.cellTemplate) {
+            @if(!column.columnType) {
+            <td class="text-center" mat-cell *matCellDef="let element"
+                [style.color]="column.hasTextColor ? element['textColor'] : null">
+                {{element[column.textColor]}}
+                {{element[column.columnDef] || "-"}} </td>
+            }
+            @else if(column.columnType === 'image') {
+            <td class="text-center" mat-cell *matCellDef="let element" [title]="element?.description">
+                <img width="50" height="50" [src]="element[column.columnDef]" alt="media">
+            </td>}
+            }
+            @else {
+            <td mat-cell *matCellDef="let element">
+                <ng-container [ngTemplateOutlet]="column.cellTemplate"
+                    [ngTemplateOutletContext]="{ data: element }"></ng-container>
+            </td>
+            }
+        </ng-container>
+        }
+
+        <!-- <ng-container matColumnDef="actions" sticky="true">
+        <th mat-header-cell *matHeaderCellDef> </th>
+        <td mat-cell *matCellDef="let element">
+            <ng-container [ngTemplateOutlet]="actionTemplateRef"
+                [ngTemplateOutletContext]="{ data: element }"></ng-container>
+        </td>
+    </ng-container> -->
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row matRipple *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</section>
+<div *ngIf="!data.length" class="no-data-message d-flex justify-content-center display-6">
+    No data available
+</div>

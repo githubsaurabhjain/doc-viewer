@@ -1,0 +1,9 @@
+<mat-form-field class="form-field-bg" appearance="fill">
+  <mat-label>{{label}}</mat-label>
+  <mat-select required [(ngModel)]="selectedValue" [multiple]="isMultiSelect" name="option"
+    [placeholder]="placeholder || ''" (selectionChange)="onOptionChange()">
+    <mat-option *ngFor="let option of list" [value]="option">
+      {{ !textMapKey ? option.text : option[textMapKey] }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

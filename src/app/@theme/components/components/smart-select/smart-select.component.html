@@ -1,0 +1,55 @@
+<div class="smart-select" [class.open]="isOpen" [class.multiple]="multiple" [class.mobile]="isMobile">
+    <div class="selected" (click)="toggleDropdown()">
+        <ng-container *ngIf="multiple then multipleSelection; else singleSelection"></ng-container>
+        <div class="options">
+            @if(!hideClear)
+            { <span class="clear" *ngIf="selectedValues.length > 0" (click)="clear();">
+                <i class="ri-close-line"></i>
+            </span>}
+            <span class="arrow">
+                <i *ngIf="isOpen" class="ri-arrow-down-s-line"></i>
+                <i *ngIf="!isOpen" class="ri-arrow-up-s-line"></i>
+            </span>
+        </div>
+    </div>
+
+    <div class="dropdown" [class.open]="isOpen">
+        <div class="dropdown-header" *ngIf="isMobile">
+            <span class="title">{{ placeholder }}</span>
+
+            <div class="selected" *ngIf="selectedValues.length > 0">
+                <ng-container *ngIf="multiple then multipleSelection; else singleSelection"></ng-container>
+                <div class="options">
+                    <span class="clear" *ngIf="selectedValues.length > 0" (click)="clear(); $event.stopPropagation()">
+                        <i class="ri-close-line"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="search-box">
+            <span class="search-icon"><i class="ri-search-line"></i></span>
+            <input type="text" [(ngModel)]="searchQuery" placeholder="Search..." #searchInput
+                (input)="filteredOptions()" /> {{searchInput.focus()}}
+        </div>
+
+        <ul class="list-items">
+            <li *ngFor="let option of filteredList" (click)="selectOption(option)"
+                [class.selected]="isOptionSelected(option)" [class.disabled]="option?.disabled">
+                {{ option.text }}
+            </li>
+        </ul>
+    </div>
+</div>
+<ng-template #singleSelection>
+    {{ selectedValues[0]?.text || placeholder }}
+</ng-template>
+<ng-template #multipleSelection>
+    <div class="multiple-selection" *ngIf="selectedValues.length > 0">
+        <span *ngFor="let value of selectedValues; let i = index" class="selected-values">
+            <span class="text">{{ value.text }}</span><span class="remove-icon" (click)="removeSelected(value)"><i
+                    class="ri-close-line"></i></span>
+        </span>
+    </div>
+    <span *ngIf="selectedValues.length === 0">{{ placeholder }}</span>
+</ng-template>

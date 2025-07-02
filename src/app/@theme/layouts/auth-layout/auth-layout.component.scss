@@ -1,0 +1,48 @@
+@use '../../../@theme/style/' as *;
+
+#main {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 100%;
+    height: 100dvh; // Ensures full-screen behavior across devices
+    min-height: -webkit-fill-available; // iOS fix
+    overflow: hidden;
+    background: #e9e9e9;
+    background-image: radial-gradient(circle, #000000, #3d101c, #770c26, #b30025, #eb1212);
+
+    .dynamic-scroll-content {
+        overflow-y: auto;
+        min-height: 0; // Fixes Safari flex/grid height issues
+        background: #ffffff;
+        border-radius: 1.5em 1.5em 0 0;
+        overscroll-behavior: contain; // Prevents rubber-band scrolling on iOS Safari
+        -webkit-overflow-scrolling: touch; // Smooth scrolling on iOS
+    }
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+
+    .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    img {
+        width: 80px;
+        max-width: 100%;
+        height: auto;
+        padding: 0.5em;
+        background: #ffffff;
+        border-radius: 100px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.32);
+
+        @include lt-md() {
+            width: 100px;
+        }
+    }
+}

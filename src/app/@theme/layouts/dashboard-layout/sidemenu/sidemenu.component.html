@@ -1,0 +1,74 @@
+<div class="flex-block" [ngClass]="(collapsed) ? 'collapsed':''" swipeGesture (swipeLeft)="closeMenu()">
+  <div class="top">
+    <div class="logo">
+      <div class="logo__img">
+        <img src="assets/logo.png" alt="logo" />
+      </div>
+    </div>
+    <div class="profile__component_mobile" *ngIf="profile__config">
+      <div class="profile__block">
+        <div class="profile__img">
+          <span class="profileImage" style="background:url('{{profile__config.imgSrc}}') no-repeat center
+                    center;background-size: cover;"></span>
+        </div>
+        <div class="profile__info">
+          <p class="title">{{profile__config.title}}</p>
+          <p class="sub-title">{{profile__config.subTitle}}</p>
+        </div>
+        <div class="profile__toggle" (click)="navigateTo('my-profile')">
+          <i class="ri-settings-2-line"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ul class="sidemenu">
+    @for (item of sideMenu ;track $index) {
+
+    @if(!item.subMenus && item.link) {
+    <li class="sidemenu-item" #sidemenu>
+      <a (click)="navigateTo(item.link)" [ngClass]="(menu.currentLink==item.link) ? 'active':''"
+        (mouseenter)="toggleHover(sidemenu,'hover')" (mouseleave)="toggleHover(sidemenu,'leave')">
+        <i class="{{item.icon}} icon"></i>
+        <b class="dot"></b>
+        <span class="title"> {{item.title}} </span>
+      </a>
+    </li>}
+    @else {
+
+    <li class="sidemenu-item" #sidemenu [matMenuTriggerFor]="more" [matMenuTriggerData]="{menuItems:item.subMenus}">
+
+      <a class="text-decoration-none" (mouseenter)="toggleHover(sidemenu,'hover')"
+        (mouseleave)="toggleHover(sidemenu,'leave')">
+        <i class="{{item.icon}} icon"></i>
+        <b class="dot"></b>
+        <span class="title"> {{item.title}} </span>
+      </a>
+
+    </li>
+
+    <!-- <button mat-icon-button [matMenuTriggerFor]="more" [matMenuTriggerData]="{menuItems:item.subMenus}"
+      aria-label="Example icon-button with a menu">
+      More
+    </button> -->
+    }
+    }
+  </ul>
+  <div class="bottom">
+    <p>{{appVersion}}</p>
+  </div>
+</div>
+
+
+<mat-menu #more="matMenu">
+  <ng-template matMenuContent let-submenus="menuItems">
+    @for (item of submenus; track $index) {
+    <button mat-menu-item (click)="item.action ? item.action():navigateTo(item.link)">
+      <a class="text-decoration-none" [ngClass]="(menu.currentLink==item.link) ? 'active':''">
+        <i class="{{item.icon}} icon"></i>
+        <b class="dot"></b>
+        <span class="title"> {{item.title}} </span>
+      </a>
+    </button>
+    }
+  </ng-template>
+</mat-menu>

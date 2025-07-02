@@ -1,0 +1,341 @@
+body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none
+}
+
+img {
+    max-width: 100%;
+}
+
+
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.flex {
+    display: flex;
+}
+
+.justify-centre {
+    justify-content: center !important;
+}
+
+.align-centre {
+    align-items: center;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.overflow-auto {
+    overflow: auto;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.flex-end {
+    justify-content: end !important;
+}
+
+.flex-column {
+    flex-direction: column !important;
+}
+
+.flex-1 {
+    flex: 1 !important;
+}
+
+.no-wrap {
+    flex-wrap: nowrap;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.decoration-none {
+    text-decoration: none;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    width: 100%;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 15px;
+
+    label:not(.pretty label) {
+        font-size: 14px;
+        display: inline-block;
+        font-weight: bold;
+        margin-bottom: 3px;
+        transform: translateX(10px);
+        color: #000;
+    }
+
+    .form-control {
+        position: relative;
+        width: 100%;
+        display: block;
+        padding: 12px;
+        border: 1px solid #f0f0f0;
+        border-radius: 10px;
+        box-shadow: none;
+
+        &.style-1 {
+            border: none;
+            padding: 6px 8px;
+        }
+    }
+}
+
+.btn {
+    padding: 12px 20px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: normal;
+    border: none;
+    min-width: 120px;
+
+    i {
+        margin-left: 6px;
+    }
+
+    &.btn-xs {
+        padding: 5px 12px;
+        font-size: 85%;
+        font-weight: 500;
+        min-width: auto;
+    }
+
+    &.btn-primary {
+        background: #000;
+        color: #fff;
+
+    }
+
+    &.btn-danger {
+        background: #ff0000;
+        color: #fff;
+
+    }
+
+    &.btn-warning {
+        background: #f56201;
+        color: #fff;
+
+    }
+
+    &.btn-secondary {
+        background: #333;
+        color: #fff;
+    }
+
+    &.btn-light {
+        background: #ddd;
+        color: #000;
+    }
+}
+
+
+.w-full {
+    width: 100%;
+}
+
+.h-full {
+    height: 100%;
+}
+
+.h-full-vh {
+    height: 100vh;
+}
+
+.bg-inherit {
+    background-color: inherit;
+}
+
+.border-none {
+    border: none !important
+}
+
+.br-50 {
+    border-radius: 50px !important;
+}
+
+.bg-none {
+    background: none !important;
+}
+
+.gp-10 {
+    gap: 10px !important;
+}
+
+.points-block {
+    background: #ffffffa1;
+    padding: 0 0 0 1.8em;
+    border-radius: 6px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    color: #522900;
+
+    .points {
+        display: block;
+        /* margin-top: 1em; */
+        font-size: 1.1em;
+        font-weight: 400;
+        padding: 0 0.3em;
+        min-width: 70px;
+        text-align: left;
+
+        .point-icon {
+            transform: translateY(-5px);
+            display: inline-block;
+            font-size: 80%;
+            line-height: 1;
+            padding: 0;
+            margin-left: -4px;
+        }
+    }
+
+    .milestone {
+        position: absolute;
+        background: rgb(220, 66, 66);
+        width: 2em;
+        aspect-ratio: 1;
+        height: 2em;
+        border-radius: 100px;
+        left: -10px;
+        font-size: 1.2em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+.cart-block {
+    position: relative;
+    cursor: pointer;
+
+    .icon {
+        font-size: 2em;
+        position: relative;
+        display: inline-block;
+
+        .text {
+            visibility: hidden;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -3px;
+            right: 10px;
+            background: #000;
+            color: #fff;
+            border-radius: 5px;
+            padding: 4px 8px;
+            font-size: 12px;
+            line-height: 1;
+        }
+    }
+}
+
+/* `theme-flex-layout` should take full height inside `dynamic-content` */
+.theme-flex-layout {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%; // Take full height of the parent
+    max-height: inherit; // Ensure it respects the parent's height
+    overflow: hidden;
+    min-height: 0; // Important for flexbox in iOS
+
+    .wrapper {
+        width: 600px;
+        max-width: 100%;
+        padding: 0 15px;
+        margin: 0 auto;
+        height: inherit; // Take full height of the parent
+    }
+
+    /* `top` section (fixed) */
+    .top {
+        flex: 0 0 auto; // Keeps header fixed
+    }
+
+    /* `content` (scrollable area) */
+    .content {
+        flex-grow: 1; // Allows it to expand
+        overflow-y: auto; // Enables scrolling
+        min-height: 0; // Prevents flexbox height collapse on iOS
+        -webkit-overflow-scrolling: touch; // Improves scroll performance on iOS
+        scroll-behavior: smooth; // Enables smooth scrolling
+    }
+
+    /* `footer` (fixed at bottom, with safe area support for iOS) */
+    .footer {
+        flex: 1 1 auto;
+        /* Ensures it stays above the iOS keyboard & safe areas */
+        padding-bottom: env(safe-area-inset-bottom, 10px); // Handles iOS safe area
+    }
+}
+
+.backdrop-class {
+    background: rgb(0 0 0 / 78%) !important
+}
+
+.bottom-fixed-modal {
+    position: fixed !important;
+    bottom: 0;
+    width: 500px;
+    max-width: calc(100%) !important;
+    height: auto;
+    background: white;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 12px 12px 0 0;
+    animation: slideUp 0.3s ease-in-out;
+
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}

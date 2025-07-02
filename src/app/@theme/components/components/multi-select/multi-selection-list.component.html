@@ -1,0 +1,14 @@
+<mat-form-field class="form-field-bg" appearance="fill" name="select">
+  <mat-label>{{label}}</mat-label>
+  <mat-select [(ngModel)]="selectedValue" [multiple]="isMultiSelect" [disabled]="isDisable" name="option"
+    [placeholder]="placeholder">
+
+    <div class="select-all">
+      <mat-checkbox [(ngModel)]="allSelected" [ngModelOptions]="{standalone: true}"
+        (change)="toggleAllSelection()">SELECT ALL</mat-checkbox>
+    </div>
+    <mat-option *ngFor="let option of list" (click)="onSelectionChange()" [value]="option">
+      {{ !textMapKey ? option.text : option[textMapKey] }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

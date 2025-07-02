@@ -1,0 +1,36 @@
+.filter-block {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+
+    .action-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+
+        button {
+            display: inline-block;
+            background: none;
+            border: none;
+            outline: none;
+            width: auto;
+
+            &.btn-apply {
+                background: #000000;
+                padding: 3px 12px;
+                border-radius: 5px;
+                color: #fff;
+            }
+
+            &.btn-reset {
+                background: #eeeeee;
+                padding: 3px 12px;
+                border-radius: 5px;
+                color: #000000;
+            }
+        }
+    }
+}

@@ -1,0 +1,153 @@
+.flag-block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 10px;
+    height: 100%;
+    gap: 0.5em;
+    min-width: 150px;
+
+    .flag {
+        font-size: 24px;
+        border-radius: 3px;
+    }
+
+    .country-name {
+        font-weight: 500;
+        margin-top: 3px;
+        font-size: 12px;
+        text-align: left;
+
+        span {
+            font-weight: 500;
+        }
+
+        a {
+            display: block;
+            text-decoration: none;
+            font-size: 80%;
+        }
+    }
+
+}
+
+.fib {
+    background-size: contain;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+
+.fi {
+    background-size: contain;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    position: relative;
+    display: inline-block;
+    width: 1.33333333em;
+    line-height: 1em;
+}
+
+.fi:before {
+    content: "\00a0";
+}
+
+.fi.sqr {
+    width: 1em;
+}
+
+$flag-path-rec: "./flags/4x3";
+$flag-path-sqr: "./flags/1x1";
+$country-codes: (
+    'xx',
+    'in',
+    'ae',
+    'ao',
+    'ar',
+    'bd',
+    'bf',
+    'bh',
+    'bj',
+    'bo',
+    'br',
+    'co',
+    'cg',
+    'cm',
+    'cr',
+    'cy',
+    'de',
+    'dj',
+    'do',
+    'ec',
+    'eg',
+    'es',
+    'et',
+    'fr',
+    'gb',
+    'gh',
+    'gn',
+    'gt',
+    'gy',
+    'hn',
+    'ht',
+    'in',
+    'iq',
+    'ir',
+    'it',
+    'jo',
+    'ke',
+    'kw',
+    'lb',
+    'lk',
+    'lr',
+    'mg',
+    'ml',
+    'mm',
+    'mu',
+    'mx',
+    'mz',
+    'ng',
+    'ni',
+    'np',
+    'pa',
+    'pe',
+    'ph',
+    'qa',
+    'sa',
+    'sd',
+    'sl',
+    'sn',
+    'sv',
+    'sy',
+    'tg',
+    'tr',
+    'tt',
+    'tz',
+    'ug',
+    'us',
+    'uy',
+    'ye',
+    'za',
+    'zm'
+);
+$fallback: 'xx';
+
+@mixin flag($code) {
+    background-image: url(#{$flag-path-rec}/rec_#{$code}.svg),
+    url(#{$flag-path-rec}/rec_#{$fallback}.svg); // Rectangular flags
+
+    &.sqr {
+        background-image: url(#{$flag-path-sqr}/sqr_#{$code}.svg),
+        url(#{$flag-path-rec}/rec_#{$fallback}.svg); // Square flags
+    }
+
+    &:not([class*="fi-"]) {
+        // Prevent duplicate fallback assignment
+        background-image: none;
+    }
+}
+
+@each $code in $country-codes {
+    .fi-#{$code} {
+        @include flag($code);
+    }
+}

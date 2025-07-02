@@ -1,0 +1,12 @@
+<div class="d-flex justify-content-between">
+    <p mat-dialog-title class="text-center flex-1">Confirm!!! </p>
+    <!-- <i matDialogClose class="ri-close-line display-6"></i> -->
+</div>
+<mat-dialog-content class="text-center">
+    {{data.message || 'Are you sure?'}}
+</mat-dialog-content>
+<mat-dialog-actions class="d-flex justify-centre gp-10">
+    <button type="button" (click)="close(false)" class="btn btn-light">Cancel</button>
+    <button type="button" (click)="close(true)" class="btn btn-secondary">Yes</button>
+
+</mat-dialog-actions>

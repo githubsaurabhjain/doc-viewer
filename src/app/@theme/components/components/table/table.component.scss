@@ -1,0 +1,14 @@
+table::ng-deep {
+    thead {
+        tr {
+            background-color: #002528;
+            color: white;
+        }
+    }
+}
+
+.mat-mdc-header-row,
+.mat-mdc-footer-row,
+.mat-mdc-row {
+    width: 200px;
+}

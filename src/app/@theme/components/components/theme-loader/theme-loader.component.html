@@ -1,0 +1,13 @@
+<div class="loader-overlay style-1" *ngIf="isLoading">
+    <div class="loader">
+        <div *ngIf="loaderType === 'spinner'" class="spinner"></div>
+        <div *ngIf="loaderType === 'dots'" class="dots">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div *ngIf="loaderType === 'pulse'" class="pulse"></div>
+        <div *ngIf="loaderType === 'ripple'" class="ripple"></div>
+        <p>Please Wait...</p>
+    </div>
+</div>

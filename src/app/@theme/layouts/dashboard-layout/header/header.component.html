@@ -1,0 +1,16 @@
+<header class="desktop">
+    <div class="toggle-button" (click)="toggleMenu()">
+        <i *ngIf="!collapsed" class="ri-center ri-menu-unfold-line"></i>
+        <i *ngIf="collapsed" class="ri-center ri-menu-fold-line"></i>
+    </div>
+    <div class="right-block">
+        <div class="item">
+            <app-profile-menu [config]="profile__config"></app-profile-menu>
+        </div>
+    </div>
+</header>
+<header class="mobile">
+    <div class="logo__img" (click)="navigateTo('my-profile')">
+        <img src="assets/logo.png" alt="logo" />
+    </div>
+</header>

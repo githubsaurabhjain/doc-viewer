@@ -1,0 +1,36 @@
+<nav class="bottom-nav">
+    <ul class="grid-size-{{sideMenu.length}}">
+        @for ( item of sideMenu; track $index) {
+        <li *ngIf="!item.subMenus">
+            <a (click)="navigateTo(item.link)" [ngClass]="(menu.currentLink == item.link) ? 'active' : ''">
+                <i class="{{ item.icon }}"></i>
+                <span>{{ item.title }}</span>
+            </a>
+        </li>
+
+        <li *ngIf="item.subMenus" #sidemenu [matMenuTriggerFor]="more" [matMenuTriggerData]="{menuItems:item.subMenus}">
+            <a class="text-decoration-none">
+                <i class="{{ item.icon }}"></i>
+                <span>{{ item.title }}</span>
+            </a>
+        </li>
+        }
+    </ul>
+</nav>
+
+
+
+<mat-menu #more="matMenu">
+    <ng-template matMenuContent let-submenus="menuItems">
+        @for (item of submenus; track $index) {
+        <button mat-menu-item (click)="item.action ? item.action():navigateTo(item?.link)">
+            <a class="text-decoration-none"
+                [ngClass]="(menu.currentLink==item.link) ? 'active':''">
+                <i class="{{item.icon}} icon"></i>
+                <b class="dot"></b>
+                <span class="title"> {{item.title}} </span>
+            </a>
+        </button>
+        }
+    </ng-template>
+</mat-menu>

@@ -1,0 +1,38 @@
+<div class="alert-container" @slideIn>
+    <div class="alert-header">
+        <div class="success-svg" *ngIf="data.type === 'success'">
+            <svg class="success-icon" width="100" height="100" viewBox="0 0 100 100" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <!-- Animated Circle -->
+                <circle class="success-circle" cx="50" cy="50" r="45" stroke="#28a745" stroke-width="4" fill="none"
+                    stroke-dasharray="282" stroke-dashoffset="282" />
+                <!-- Animated Checkmark -->
+                <path class="success-check" d="M30 50L44 64L70 38" stroke="#28a745" stroke-width="6"
+                    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="50" stroke-dashoffset="50" />
+            </svg>
+        </div>
+        <div class="warning-svg" *ngIf="data.type === 'error'">
+            <svg class="warning-icon" width="100" height="100" viewBox="0 0 100 100" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <!-- Animated Triangle -->
+                <polygon class="warning-triangle" points="50,10 90,80 10,80" stroke="#ffc107" stroke-width="4"
+                    fill="none" stroke-dasharray="240" stroke-dashoffset="240" />
+
+                <!-- Animated Exclamation Mark -->
+                <line class="warning-line" x1="50" y1="35" x2="50" y2="60" stroke="#ffc107" stroke-width="6"
+                    stroke-linecap="round" stroke-dasharray="30" stroke-dashoffset="30" />
+                <circle class="warning-dot" cx="50" cy="72" r="4" fill="#ffc107" opacity="0" />
+            </svg>
+        </div>
+        <h2>{{ data.title }}</h2>
+        <p *ngIf="data.subTitle">{{ data.subTitle }}</p>
+    </div>
+    <div class="alert-body">
+        <div [innerHTML]="data.message"></div>
+    </div>
+    <div class="alert-actions">
+        <button *ngFor="let button of data.buttons" (click)="onButtonClick(button)" class="btn-{{ button.class }}">
+            {{ button.text }}
+        </button>
+    </div>
+</div>

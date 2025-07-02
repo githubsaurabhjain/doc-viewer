@@ -1,0 +1,230 @@
+.pwa-install-bg {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8117647059);
+    z-index: 999999;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 2em;
+
+    .install-banner {
+        position: relative;
+        background: white;
+        color: #333;
+        padding: 15px;
+        border-radius: 12px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+        width: 500px;
+        max-width: calc(100% - 30px);
+        display: flex;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        z-index: 9;
+    }
+
+    .install-content {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        width: 100%;
+
+        &.mobile {
+            flex-direction: column;
+        }
+    }
+
+    .app-icon {
+        width: 150px;
+        border-radius: 10px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    h3 {
+        margin: 0;
+        color: #1976d2;
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 14px;
+        margin: 5px 0;
+    }
+
+    ul {
+        padding: 0;
+        list-style: none;
+        font-size: 14px;
+    }
+
+    ul li {
+        margin: 3px 0;
+    }
+
+    .install-buttons {
+        margin-top: 10px;
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    button {
+
+
+        &.btn-install {
+            background: #000000;
+            color: white;
+            border: 2px solid #000000;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+            min-width: 150px;
+
+            &:hover {
+                background-color: #444;
+            }
+        }
+
+        &.btn-cancel {
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+            min-width: 150px;
+            background: #f3f3f3;
+            color: #000000;
+            border: 2px solid #c7c7c7;
+
+            &:hover {
+                background-color: #dfdede;
+            }
+        }
+    }
+}
+
+$primary-color: #1c1c1c;
+$hover-color: #000000;
+$text-color: #141414;
+$secondary-text-color: #1a1a1a;
+$border-radius: 5px;
+
+.offline-container {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.8392156863);
+    z-index: 999999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    pointer-events: none;
+
+    .content {
+        background: white;
+        padding: 30px;
+        border-radius: 5px;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+        display: block;
+        width: 500px;
+        max-width: calc(100% - 50px);
+
+        .offline-icon {
+            font-size: 5em;
+            color: #F44336;
+        }
+
+        h2 {
+            font-size: 1.4em;
+            color: #ff3b2d;
+            font-weight: 600;
+            margin-bottom: 2em;
+            border: 1px solid;
+            padding: 0.5em;
+            border-radius: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            color: $secondary-text-color;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: $primary-color;
+            border: none;
+            border-radius: $border-radius;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+
+            &:hover {
+                background-color: $hover-color;
+            }
+        }
+    }
+}
+
+.update-container {
+    background: #000000e3;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+
+    .update-alert {
+        text-align: center;
+        padding: 20px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 999;
+        background: #ffffff;
+        border-radius: 10px;
+
+        h2 {
+            margin-bottom: 1.5em;
+            font-weight: 1.3em;
+            border-bottom: 2px solid #555555;
+            padding-bottom: 0.5em;
+        }
+
+        .update-btn {
+            padding: 10px 1em;
+            border: none;
+            box-shadow: 4px 4px 0px 0px #c6c6c6;
+            outline: none;
+            background: #000000;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                box-shadow: none;
+            }
+        }
+    }
+}

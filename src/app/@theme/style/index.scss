@@ -1,0 +1,75 @@
+@forward "bootstrap/scss/bootstrap";
+@forward 'remixicon/fonts/remixicon.css';
+@forward 'animate.css';
+@forward 'pretty-checkbox/src/pretty-checkbox.scss';
+@forward './variables.scss';
+@forward './media-queries.scss';
+@forward './common.scss';
+@forward './flags.scss';
+
+/* --- Remix icon class extender ---*/
+
+.ri-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ri-flip-vertical {
+    -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+    -webkit-transform: scale(1, -1);
+    -ms-transform: scale(1, -1);
+    transform: scale(1, -1);
+}
+
+.pretty-container {
+    display: inline-block;
+    padding: 12px;
+
+    label {
+        font-size: unset;
+        color: unset;
+    }
+
+    &.fw {
+        display: block;
+
+        .pretty {
+            display: block;
+
+        }
+    }
+}
+
+.pretty {
+    label {
+        font-size: unset !important;
+        color: unset !important;
+    }
+}
+
+.dashboard-wrapper {
+    width: 1000px;
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 2rem 1rem 1rem;
+    min-height: 100%;
+    overflow: hidden;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /* Prevent scrolling */
+    position: fixed;
+    touch-action: none;
+    /* Stops touch-based scrolling */
+    overscroll-behavior: none;
+    /* Prevents rubber-band effect */
+    font-size: 14px;
+}

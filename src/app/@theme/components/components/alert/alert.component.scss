@@ -1,0 +1,191 @@
+.alert-container {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+
+.alert-header {
+    h2 {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 5px;
+    }
+
+    h3 {
+        font-size: 14px;
+        color: #777;
+        margin-bottom: 10px;
+    }
+}
+
+::ng-deep .alert-body {
+    text-align: justify;
+
+    p {
+        font-size: 14px;
+        margin: 0 0 5px;
+    }
+
+
+}
+
+.alert-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 2em;
+    border-top: 2px solid #eee;
+    padding: 2em 0 1em;
+
+    button {
+        border: none;
+        padding: 10px 15px;
+        font-size: 14px;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    .btn-primary {
+        background: #add5ff;
+        color: #012f54;
+        border: 2px solid;
+    }
+
+    .btn-secondary {
+        background: #f0f0f0;
+        color: #333;
+        border: 2px solid;
+    }
+
+    .btn-danger {
+        background: #ff9ca5;
+        color: #380000;
+        border: 2px solid;
+    }
+
+    .btn-warning {
+        background: #ffe699;
+        color: #121100;
+        border: 2px solid;
+    }
+
+    .btn-success {
+        background: #a6ffba;
+        color: #002b02;
+        border: 2px solid;
+    }
+
+    .btn-info {
+        background: #85edfe;
+        color: #00294a;
+        border: 2px solid;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+.success-svg {
+    text-align: center;
+    --icon-size: 100px;
+    margin: 2em 0;
+
+    .success-icon {
+        width: var(--icon-size);
+        height: var(--icon-size);
+        display: inline-block;
+
+
+        .success-circle {
+            animation: drawCircle 1s ease-out forwards;
+        }
+
+        .success-check {
+            animation: drawCheck 0.6s ease-out 0.8s forwards;
+        }
+
+        @keyframes drawCircle {
+            from {
+                stroke-dashoffset: 285;
+            }
+
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        @keyframes drawCheck {
+            from {
+                stroke-dashoffset: 50;
+            }
+
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+    }
+}
+
+.warning-svg {
+    text-align: center;
+    --icon-size: 100px;
+    margin: 2em 0;
+
+    .warning-icon {
+        width: var(--icon-size);
+        height: var(--icon-size);
+        display: inline-block;
+    }
+
+    .warning-triangle {
+        animation: drawTriangle 0.8s ease-out forwards;
+    }
+
+    .warning-line {
+        animation: drawLine 0.5s ease-out 0.8s forwards;
+    }
+
+    .warning-dot {
+        animation: fadeInDot 0.4s ease-out 1.3s forwards;
+    }
+
+    @keyframes drawTriangle {
+        from {
+            stroke-dashoffset: 240;
+        }
+
+        to {
+            stroke-dashoffset: 0;
+        }
+    }
+
+    @keyframes drawLine {
+        from {
+            stroke-dashoffset: 30;
+        }
+
+        to {
+            stroke-dashoffset: 0;
+        }
+    }
+
+    @keyframes fadeInDot {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+}

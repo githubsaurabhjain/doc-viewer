@@ -1,0 +1,198 @@
+@use '../src/app/@theme/style' as *;
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline:opsz,wght@10..72,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+// Define the theme object.
+// $gb-odrc-app-theme: mat.define-theme((color: (theme-type: light,
+//                 primary: mat.$azure-palette,
+//                 tertiary: mat.$blue-palette,
+//             ),
+//             density: (scale: 0,
+//             )));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+// :root {
+//     @include mat.all-component-themes($gb-odrc-app-theme);
+// }
+
+// Comment out the line below if you want to use the pre-defined typography utility classes.
+// For more information: https://material.angular.io/guide/typography#using-typography-styles-in-your-application.
+// @include mat.typography-hierarchy($gb-odrc-app-theme);
+
+// Comment out the line below if you want to use the deprecated `color` inputs.
+// @include mat.color-variants-backwards-compatibility($gb-odrc-app-theme);
+/* You can add global styles to this file, and also import other style files */
+
+
+html,
+body {
+    height: 100%;
+    min-height: 100vh;
+    /* Fallback */
+    min-height: 100dvh;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+
+    /* Fix for iOS Safari */
+    // overflow: hidden;
+    // /* Prevents scrolling */
+    // position: fixed;
+    // width: 100%;
+    // touch-action: none;
+    /* Blocks touch gestures */
+}
+
+.no-scroll {
+    overflow: hidden;
+    height: 100vh;
+    touch-action: none;
+}
+
+body {
+    padding-bottom: env(safe-area-inset-bottom, 10px);
+    margin: 0;
+    font-family: "Poppins", "Helvetica Neue", sans-serif;
+}
+
+
+.form-group {
+    margin-bottom: 0.5rem;
+
+    label {
+        font-size: 80%;
+        color: #000;
+    }
+
+    .btn-primary {
+        --bs-btn-disabled-bg: #5f5f5f;
+        --bs-btn-disabled-border-color: #5f5f5f;
+    }
+
+    .input-group {
+        &:has(.form-control.ng-invalid.ng-touched) {
+            .input-group-text {
+                border-color: red !important;
+            }
+        }
+
+        &:has(.form-control.ng-valid) {
+            .input-group-text {
+                border-color: green !important;
+            }
+        }
+    }
+
+
+    .form-control {
+        border-color: #000;
+        outline: none;
+        box-shadow: none;
+
+        &.ng-invalid.ng-touched {
+            border-color: red !important;
+        }
+
+        &.ng-valid {
+            border-color: green !important;
+        }
+    }
+}
+
+.submit-btn {
+    margin-top: 20px;
+
+    button {
+        background: #8a63d4 !important;
+        color: white !important;
+    }
+}
+
+.pending {
+    color: rgb(184, 184, 20) !important;
+}
+
+.accepted {
+    color: rgb(28, 192, 192) !important;
+}
+
+.delivered {
+    color: rgb(37, 139, 37) !important;
+}
+
+$units: (
+    px: 'px',
+    em: 'em',
+    rem: 'rem',
+    per: '%'
+);
+
+$positions: (
+    t: 'top',
+    r: 'right',
+    b: 'bottom',
+    l: 'left'
+);
+
+@for $size from 0 through 15 {
+    @each $unit, $ut in $units {
+        @each $position, $pos in $positions {
+            .m-#{$position}-#{$size}#{$unit} {
+                margin-#{$pos}: #{$size}#{$ut} !important;
+            }
+
+            .p-#{$position}-#{$size}#{$unit} {
+                padding-#{$pos}: #{$size}#{$ut} !important;
+            }
+        }
+
+        .m-#{$size}#{$unit} {
+            margin: #{$size}#{$ut} !important;
+        }
+
+        .mx-#{$size}#{$unit} {
+            margin-top: #{$size}#{$ut} !important;
+            margin-bottom: #{$size}#{$ut} !important;
+        }
+
+        .my-#{$size}#{$unit} {
+            margin-right: #{$size}#{$ut} !important;
+            margin-left: #{$size}#{$ut} !important;
+        }
+
+        .p-#{$size}#{$unit} {
+            padding: #{$size}#{$ut} !important;
+        }
+
+        .px-#{$size}#{$unit} {
+            padding-top: #{$size}#{$ut} !important;
+            padding-bottom: #{$size}#{$ut} !important;
+        }
+
+        .py-#{$size}#{$unit} {
+            padding-right: #{$size}#{$ut} !important;
+            padding-left: #{$size}#{$ut} !important;
+        }
+
+        .w-#{$size}#{$unit} {
+            width: #{$size}#{$ut} !important;
+        }
+    }
+}
+
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";

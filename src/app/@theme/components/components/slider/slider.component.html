@@ -1,0 +1,5 @@
+<div class="slider" [ngClass]="animationType">
+    <div class="slides" *ngFor="let item of images; let i = index" [class.active]="i === currentIndex"
+        [style.background-image]="'url(' + item.image+')'">
+    </div>
+</div>

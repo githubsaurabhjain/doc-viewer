@@ -1,0 +1,27 @@
+<div id="template__wrapper" [ngClass]="collapsed ? 'side-menu-collapse' : ''" swipeGesture (swipeRight)="openMenu()">
+    <div class="side-menu" #sideMenu>
+        <div class="side-menu-wrapper">
+            <!-- <div class="toggle-btn" (click)="toggleMenu()">
+                <i class="ri-close-large-line"></i>
+            </div> -->
+            <app-sidemenu [menu]="menu" [collapsed]="collapsed"></app-sidemenu>
+        </div>
+    </div>
+    <div id="contentBlock">
+        <div class="content">
+            <div id="progressIndicator" *ngIf="false">
+                <div class="progress" tabIndex="-1" style="width:100%"></div>
+            </div>
+            <div id="header">
+                <app-header></app-header>
+            </div>
+            <div class="content-body">
+                <router-outlet #outlet="outlet" />
+            </div>
+            <div id="footer">
+                <app-footer-nav *ngIf="deviceType!='desktop'" [menu]="menu"></app-footer-nav>
+                <app-footer *ngIf="deviceType=='desktop'"></app-footer>
+            </div>
+        </div>
+    </div>
+</div>

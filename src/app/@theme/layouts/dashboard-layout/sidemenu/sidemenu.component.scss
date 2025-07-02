@@ -1,0 +1,218 @@
+@use "../../../../@theme/style" as *;
+
+.profile__component_mobile {
+    display: none !important;
+
+    @include lt-md {
+        display: block !important;
+        padding: 1em 0 1em 1em;
+
+        .profile__block {
+            display: grid;
+            grid-template-columns: 55px calc(100% - 100px) 45px;
+            align-items: center;
+            justify-items: start;
+            height: 100%;
+
+            .profile__img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                background: #d4e6e5;
+                text-align: center;
+                position: relative;
+
+                .profileImage {
+                    width: calc(100% - 8px);
+                    height: calc(100% - 8px);
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+
+            .profile__info {
+                padding: 2px 5px;
+                width: 100%;
+                text-align: left;
+
+                .title {
+                    margin: 0;
+                    padding-bottom: 1px;
+                    font-size: 14px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                .sub-title {
+                    margin: 0;
+                    padding-bottom: 3px;
+                    font-size: 12px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+
+            .profile__toggle {
+                cursor: pointer;
+                position: relative;
+                width: 100%;
+                background: #dedede;
+                height: 100%;
+                font-size: 1.2em;
+                display: flex;
+                font-weight: bold;
+                align-items: center;
+                justify-content: center;
+                color: #3a3a3a;
+            }
+        }
+
+    }
+}
+
+.logo {
+    padding: 0.1em 0.1em 0.5em;
+    text-align: left;
+    border-bottom: 1px solid #dedede;
+    margin-bottom: 0.7em;
+    text-align: center;
+
+    .logo__img {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+
+        @include lt-md {
+            // display: none;
+            width: 200px;
+        }
+    }
+
+
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.sidemenu {
+    position: relative;
+    list-style: none;
+    padding: 10px;
+    overflow-y: auto;
+    direction: rtl;
+    text-align: left;
+
+    .sidemenu-item {
+        direction: ltr;
+        position: relative;
+        margin-bottom: 5px;
+
+
+        a.active {
+            background: #002528;
+            color: #fff;
+        }
+
+        a {
+            cursor: pointer;
+            text-decoration: none;
+            position: relative;
+            width: 100%;
+            border-radius: 5px;
+            padding: 10px;
+            color: #000;
+            display: flex;
+            align-items: center;
+
+            &:hover {
+                background: #002528;
+                color: #fff;
+            }
+
+            .title {
+                width: 100%;
+                padding-left: 10px;
+            }
+        }
+    }
+}
+
+
+
+.flex-block {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    align-content: space-evenly;
+    height: 100%;
+    overflow: hidden;
+
+    .bottom {
+        text-align: center;
+
+        p {
+            font-size: 80%;
+        }
+    }
+
+    &.collapsed {
+
+        .sidemenu-item {
+            a {
+                &:hover {
+                    background: #002528;
+                }
+
+                &:hover>.title {
+                    display: none;
+                    position: fixed;
+                    left: calc(100% + 4px);
+                    background: #002528;
+                    width: 150px;
+                    height: 100%;
+                    border-radius: 6px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    z-index: 9;
+                    align-items: center;
+
+
+                }
+
+                &:hover>.dot {
+                    position: absolute;
+                    width: 15px;
+                    height: 15px;
+                    background: #00a19a;
+                    left: calc(100% + -7px);
+                    z-index: 99;
+                    border-radius: 100px;
+                }
+
+                .icon {
+                    width: 100%;
+                    text-align: center;
+                }
+
+                .title {
+                    display: none;
+                }
+            }
+        }
+    }
+}

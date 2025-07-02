@@ -1,0 +1,10 @@
+<div class="breadcrumbs" *ngIf="config">
+    <div class="title">{{config.title}}</div>
+    <div class="menu__items">
+        <ol class="breadcrumb">
+            <li class="breadcrumb__items"><a href="javascript: void(0);">App</a></li>
+            <li class="breadcrumb__items"><i class="ri-arrow-right-s-line"></i></li>
+            <li class="breadcrumb__items active">{{config.activeLink}}</li>
+        </ol>
+    </div>
+</div>

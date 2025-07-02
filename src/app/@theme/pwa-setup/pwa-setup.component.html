@@ -1,0 +1,75 @@
+<div *ngIf="isOnline | async; else deviceOffline;"></div>
+
+<ng-template #deviceOffline>
+    <div class="offline-container">
+        <div class="content">
+            <div class="offline-icon"><i class="ri-wifi-off-fill"></i></div>
+            <h2>You're Offline</h2>
+            <p>It looks like your internet connection is lost.</p>
+            <p>Please check your connection and try again.</p>
+            <!-- <button onclick="location.reload()">Retry</button> -->
+        </div>
+    </div>
+</ng-template>
+
+<div *ngIf="showInstallPrompt && !isDesktop" class="pwa-install-bg">
+    <div class="install-banner animate__animated animate__bounceInUp">
+        <div class="install-content mobile">
+            <img src="assets/logo.png" alt="App Logo" class="app-icon" />
+            <div>
+                <h3>🚀 Get the Best Experience!</h3>
+                <p>Install our app for a faster, smoother, and performance experience.</p>
+                <ul>
+                    <li>✅ Lightning-fast performance</li>
+                    <li>✅ Loads instantly</li>
+                    <li>✅ No app store required</li>
+                    <li>✅ Secure and lightweight</li>
+                </ul>
+                <div class="install-buttons">
+                    <button (click)="installPWA()" class="btn-install"><i class="ri-apps-2-ai-line"></i> Install
+                        <br><small>Explore
+                            Now</small></button>
+                    <button (click)="dismissPrompt()" class="btn-cancel">❌ Dismiss <br><small>For 10
+                            Days</small></button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div *ngIf="showInstallPrompt && isDesktop" class="pwa-install-bg">
+    <div class="install-banner animate__animated animate__bounceInUp">
+        <div class="install-content desktop">
+            <img src="assets/logo.png" alt="App Logo" class="app-icon" />
+            <div>
+                <h3>🚀 Install Our App</h3>
+                <p>Enjoy a faster, smoother experience with our Progressive Web App.</p>
+                <ul>
+                    <li>✅ Quick access from your desktop</li>
+                    <li>✅ No need to open a browser</li>
+                    <li>✅ Lightweight & secure</li>
+                    <li>✅ Loads instantly</li>
+                </ul>
+                <div class="install-buttons">
+                    <button (click)="installPWA()" class="btn-install"><i class="ri-apps-2-ai-line"></i> Install
+                        <br><small>Explore
+                            Now</small></button>
+                    <button (click)="dismissPrompt()" class="btn-cancel">❌ Dismiss <br><small>For 10
+                            Days</small></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="update-container" *ngIf="isUpdateAvailable">
+    <div class="update-alert">
+        <h2>Update Available</h2>
+        <p>A new version of the application is available. Please update to get the latest features and improvements.</p>
+        <div class="button">
+            <button class="update-btn" (click)="updateApp()">Update Now</button>
+        </div>
+    </div>
+</div>

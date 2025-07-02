@@ -1,0 +1,49 @@
+@use '../../../../@theme/style/' as *;
+
+.breadcrumbs {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    align-items: center;
+    font-weight: 500;
+    font-size: 14px;
+
+    @include lt-md() {
+        font-size: 1.2em;
+        margin-bottom: 12px;
+    }
+
+    .title {
+        position: relative;
+    }
+
+    .menu__items {
+        position: relative;
+
+        @include lt-md() {
+            display: none;
+        }
+
+        .breadcrumb {
+            position: relative;
+            margin-bottom: 0;
+
+            .breadcrumb__items {
+                position: relative;
+                margin-right: 10px;
+
+                a {
+                    text-decoration: none;
+                    color: #444;
+                    padding: 0 10px;
+                }
+
+                &.active {
+                    color: #185a5f;
+                }
+            }
+        }
+    }
+}

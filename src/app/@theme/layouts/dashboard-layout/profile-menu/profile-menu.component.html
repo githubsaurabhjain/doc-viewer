@@ -1,0 +1,25 @@
+<div class="profile__component" *ngIf="config">
+    <div class="profile__block">
+        <div class="profile__img">
+            <span class="profileImage" style="background:url('assets/profile.png') no-repeat center
+                center;background-size: cover;"></span>
+        </div>
+        <div class="profile__info">
+            <p class="title">{{config.title}}</p>
+            <p class="sub-title">{{config.subTitle}}</p>
+        </div>
+        <div class="profile__toggle" (click)="toggleDropdown()">
+            <i class="ri-arrow-down-s-line icon"></i>
+        </div>
+    </div>
+    <div class="profile__dropdown" *ngIf="config.links" [ngClass]="(profile_dropdown) ? 'open' : ''">
+        <ul>
+            <li *ngFor="let item of config.links">
+                <a (click)="item.action()">
+                    <i class="{{item.icon}} icon"></i>
+                    <span>{{item.title}}</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

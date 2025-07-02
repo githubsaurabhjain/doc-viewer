@@ -1,0 +1,28 @@
+$animation-duration: 6s;
+$ease: linear;
+
+.slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    background: #ffffff;
+    border-radius: 1em;
+
+    .slides {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0;
+        transition: opacity 3s ease-in-out;
+    }
+
+    .active {
+        opacity: 1;
+    }
+
+}
