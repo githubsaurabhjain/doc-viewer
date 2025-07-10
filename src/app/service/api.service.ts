@@ -133,10 +133,8 @@ export class ApiService {
   public getTablesData(param: any) {
     return this.http.apiCall(
       {
-        url: `document/details`,
+        url: `document/list/masterTableData`,
         body: {
-          type: param?.req?.type,
-          typeName: param?.req?.typeName,
           authorizeDb: param?.req?.authorizeDb,
         },
       },
@@ -162,7 +160,7 @@ export class ApiService {
     );
   }
 
-    public getDatabaseList(param: any) {
+  public getDatabaseList(param: any) {
     return this.http.apiCall(
       {
         url: `document/list/database`,

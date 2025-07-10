@@ -1,0 +1,154 @@
+html,
+body {
+    height: auto;
+    overflow: visible !important;
+}
+
+::ng-deep .pagedjs_pages {
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+    align-items: center;
+    margin: 10em 0;
+    overflow: visible !important;
+    height: auto !important;
+}
+
+::ng-deep .pagedjs_page {
+    border: 1px solid black;
+    margin-bottom: 20px;
+
+}
+
+.chapter-1 {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+@page {
+    size: A4 landscape;
+}
+
+@page {
+    size: 6in 8in;
+    margin: 20mm 20mm;
+
+
+    @bottom-center {
+        content: "Page " counter(page);
+    }
+}
+
+@page :first {
+    background-color: yellow;
+
+    @bottom-center {
+        content: "Total " counter(pages) " Pages";
+    }
+
+    @bottom-left {
+        content: "";
+    }
+}
+
+:root {
+    font-size: 18px;
+}
+
+section {
+    break-before: page;
+}
+
+p {
+    line-height: 22px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-top: 0;
+}
+
+@media screen {
+
+    body {
+        background-color: whitesmoke;
+    }
+
+    .pagedjs_page {
+        background-color: white;
+        box-shadow: 0 0 0 1px #bfbfbf;
+        margin-top: 10mm;
+        margin-left: 10mm;
+    }
+
+}
+
+#runningHeader {
+    position: running(headerRunning);
+}
+
+@page {
+    @top-left {
+        content: element(headerRunning);
+    }
+}
+
+#runningFooter {
+    position: running(footerRunning);
+
+    h3 {
+        font-size: 0.7em;
+        font-weight: 500;
+        margin: 0;
+    }
+}
+
+@page {
+    @bottom-left {
+        content: element(footerRunning);
+    }
+}
+
+.flex-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5mm;
+}
+
+#index {
+    h3 {
+        font-size: 8mm;
+        border: 1px solid #000;
+        border-left: none;
+        border-right: none;
+        margin-bottom: 10mm;
+        padding-left: 5mm;
+        page-break-inside: unset;
+    }
+}
+
+li.toc-subchap::before {
+    content: "Overview for " attr(data-ref-id) " ............................................................... ";
+}
+
+.link::after {
+    content: target-counter(attr(href url), page);
+}
+
+ul li.toc-subchap a {
+    text-decoration: none;
+    pointer-events: none;
+    color: #000;
+    font-size: 1.1em;
+    display: inline-block;
+}
+
+@page {
+    size: 210mm 297mm;
+    margin: 15mm;
+}
